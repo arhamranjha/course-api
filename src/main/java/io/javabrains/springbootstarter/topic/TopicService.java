@@ -23,4 +23,17 @@ public class TopicService {
 	public void addTopic(Topic topic) {
 		topicsList.add(topic);
 	}
+
+	public void updateTopic(Topic topic, String id) {
+		for (int i = 0; i < topicsList.size(); i++) {
+			if (topicsList.get(i).getId().equalsIgnoreCase(id)) {
+				topicsList.set(i, topic);
+				return;
+			}
+		}
+	}
+
+	public void deleteTopic(String id) {
+		topicsList.removeIf(e -> e.getId().equalsIgnoreCase(id));
+	}
 }
